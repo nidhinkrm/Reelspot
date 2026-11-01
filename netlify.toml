@@ -1,11 +1,13 @@
-# Netlify configuration for ReelSpot Web Showcase
+# Netlify configuration for ReelSpot Web Showcase & APK Distribution
 [build]
   publish = "."
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[headers]]
+  for = "/reelspot-v3.0.apk"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment; filename=\"reelspot-v3.0.apk\""
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/*"
@@ -14,3 +16,13 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/download"
+  to = "/reelspot-v3.0.apk"
+  status = 302
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -3,6 +3,7 @@
 *.aar
 *.ap_
 *.aab
+!reelspot-v3.0.apk
 
 # Files for the ART/Dalvik VM
 *.dex

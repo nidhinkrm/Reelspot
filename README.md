@@ -58,14 +58,19 @@ These are planned improvements, not promises that every feature is already avail
 
 ## 📱 Getting started
 
-To try ReelSpot:
+To try ReelSpot (Version 3.0):
 
-1. Download the latest APK from the project's Releases page or from  [ReelSpot_Download](https://reel-spot.netlify.app).
-2. Install it on your Android device.
+1. **Download the latest APK (v3.0)**:
+   - ⚡ **Direct Netlify APK Download**: [reelspot-v3.0.apk](https://reel-spot.netlify.app/reelspot-v3.0.apk)
+   - 🌐 **Interactive Web Showcase (Netlify)**: [https://reel-spot.netlify.app](https://reel-spot.netlify.app)
+   - 📦 **GitHub Releases**: [ReelSpot Releases](https://github.com/nidhinkrm/ReelSpot/releases)
+   - 🌿 **GitHub Version 3 Branch**: [nidhinkrm/ReelSpot (version3)](https://github.com/nidhinkrm/ReelSpot/tree/version3)
+2. Install the APK on your Android device.
 3. Grant location and notification permissions if you want to use nearby reminders.
-4. Start saving places you'd like to visit.
+4. Start saving places you'd like to visit!
 
 If you're installing an APK directly, Android may ask you to allow installation from that source.
+
 
 ## 🤝 Contributions and feedback
 
