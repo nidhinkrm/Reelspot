@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_tab" name="shell-type"/>
+  <title>ReelSpot - Turn Instagram Reels into Real Adventures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#a83223',
+            'on-primary': '#ffffff',
+            'primary-container': '#c94a38',
+            'on-primary-container': '#fffbff',
+            'primary-fixed': '#ffdad4',
+            'primary-fixed-dim': '#ffb4a8',
+            'on-primary-fixed': '#410100',
+            'on-primary-fixed-variant': '#8a1c10',
+            'secondary': '#376847',
+            'on-secondary': '#ffffff',
+            'secondary-container': '#b6edc2',
+            'on-secondary-container': '#3b6d4b',
+            'secondary-fixed': '#b9efc5',
+            'secondary-fixed-dim': '#9dd3aa',
+            'on-secondary-fixed': '#00210e',
+            'on-secondary-fixed-variant': '#1e5031',
+            'tertiary': '#3f6355',
+            'on-tertiary': '#ffffff',
+            'tertiary-container': '#587c6d',
+            'on-tertiary-container': '#f5fff8',
+            'tertiary-fixed': '#c4ebd9',
+            'tertiary-fixed-dim': '#a8cfbd',
+            'on-tertiary-fixed': '#002116',
+            'on-tertiary-fixed-variant': '#2a4d40',
+            'background': '#faf9fb',
+            'on-background': '#1b1c1e',
+            'surface': '#faf9fb',
+            'surface-dim': '#dbd9dc',
+            'surface-bright': '#faf9fb',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f5f3f5',
+            'surface-container': '#efedf0',
+            'surface-container-high': '#e9e8ea',
+            'surface-container-highest': '#e3e2e4',
+            'surface-variant': '#e3e2e4',
+            'on-surface': '#1b1c1e',
+            'on-surface-variant': '#58413d',
+            'outline': '#8c716c',
+            'outline-variant': '#e0bfba',
+            'error': '#ba1a1a',
+            'on-error': '#ffffff',
+            'error-container': '#ffdad6',
+            'on-error-container': '#93000a'
+          },
+          fontFamily: {
+            'sans': ['Plus Jakarta Sans', 'sans-serif'],
+            'display': ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @layer base {
+      html, body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased flex flex-col min-h-screen">
+  <div class="w-full max-w-md mx-auto flex flex-col min-h-screen relative shadow-2xl bg-surface">
+    <!-- Header -->
+    <header class="fixed top-0 max-w-md w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe">
+      <div class="flex justify-between items-center px-4 h-6 text-on-surface-variant text-xs">
+        <span class="font-bold tracking-tight text-on-surface">9:41</span>
+        <div class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-[16px]">wifi</span>
+          <span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+          <span class="material-symbols-outlined text-[16px]">battery_full</span>
+        </div>
+      </div>
+      <div class="h-16 px-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <img alt="ReelSpot Logo" class="h-8 w-auto object-contain rounded-lg" src="https://lh3.googleusercontent.com/aida/AEtjO1X2d6hprT2ns5SusQ5ZjO5F_ZZbyBzWFGJh8sMellkhYhLvdoSWQtd0Ij7iw2lm1tAFjTlQh8uOuDSRWpzesAyXdvlX9hJRF_ZwoeZGkoTQppRGmXpHKc1Ed8cYAASkpIAXqtV7MLR1dNNMNykZaH9bf-siKKzS7iw9efVnMu99Fs4zFtEI-i8lSGQcpcGq33PpeFBRCd62ewh27HhvWDIJ-6GCbt13a6tzbCWwhu07"/>
+          <div class="flex flex-col">
+            <div class="flex items-baseline gap-1">
+              <span class="text-lg text-primary font-bold tracking-tight">ReelSpot</span>
+              <span class="text-xs text-on-surface-variant font-semibold">• Home</span>
+            </div>
+            <span class="text-xs text-on-surface-variant font-normal tracking-wide">Visit the place</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container-high transition-colors">
+            <span class="material-symbols-outlined">notifications</span>
+          </button>
+          <div class="p-[2px] rounded-full bg-surface-container-high">
+            <img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmADgJMUXaciFKa9TL6LTrNNmMwWmiOmJm2OkutNlTa8g19zBKGe5uRUzwcqTOXY6vxLRS72lUTBaJikhuN0LebCCDNQwBZqRm0s7K0N4N_pyIrxbL_G0vKEWxWwJcj2AGZifQqGPN1eTp2vcCRKdJxwDkN11bpBwUnao5k7Kk2-0InaYHZ0Fx_OXdWXiHdkwlz2EM18tiHim9bBsyAKL5Tboq8KO1Dpj0jzehDcg"/>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex flex-col relative w-full pt-[88px] pb-[104px] bg-surface flex-grow">
+      <div class="flex flex-col w-full">
+        <!-- Top Greeting & Context Header -->
+        <section class="px-4 pt-1 pb-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-1">
+                <h1 class="text-xl text-on-surface font-extrabold tracking-tight">Good morning, Elena</h1>
+                <span class="text-[20px] animate-bounce">👋</span>
+              </div>
+              <p class="text-sm text-on-surface-variant mt-0.5 font-medium">Turn your saved Reels into real adventures today</p>
+            </div>
+            <div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container shadow-sm cursor-pointer hover:scale-105 transition-transform" onclick="alert('Exploring 3 nearby saved spots in Trastevere, Rome!')">
+              <span class="material-symbols-outlined text-[22px]">explore</span>
+              <span class="absolute -top-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full animate-ping"></span>
+              <span class="absolute -top-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full"></span>
+            </div>
+          </div>
+          <!-- Search & Filter Bar -->
+          <div class="mt-4 relative flex items-center shadow-sm rounded-full bg-surface-container-lowest transition-all focus-within:shadow-md border border-outline-variant/30">
+            <div class="pl-4 pr-1 flex items-center pointer-events-none text-outline">
+              <span class="material-symbols-outlined text-[22px]">search</span>
+            </div>
+            <input class="w-full py-3.5 bg-transparent text-on-surface placeholder:text-outline text-sm focus:outline-none min-w-0" id="place-search-input" placeholder="Search saved cafes, viewpoints, cities..." type="text"/>
+            <div class="flex items-center gap-1.5 pr-2">
+              <button aria-label="Voice Search" class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" onclick="alert('Voice search activated...')">
+                <span class="material-symbols-outlined text-[20px]">mic</span>
+              </button>
+              <button aria-label="Filters" class="w-9 h-9 flex items-center justify-center rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" onclick="alert('Filters opened: All, Distance, Category, Rating')">
+                <span class="material-symbols-outlined text-[20px]">tune</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Category Slider Pills -->
+        <section class="mt-1">
+          <div class="flex items-center gap-2 overflow-x-auto px-4 py-1.5 no-scrollbar">
+            <button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary text-xs font-semibold whitespace-nowrap shadow-sm active:scale-95 transition-transform flex-shrink-0">
+              <span>🍜</span>
+              <span>Food &amp; Dining</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform flex-shrink-0">
+              <span>☕</span>
+              <span>Cafes &amp; Roasters</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform flex-shrink-0">
+              <span>🏔️</span>
+              <span>Travel &amp; Views</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform flex-shrink-0">
+              <span>🏛️</span>
+              <span>Attractions &amp; Culture</span>
+            </button>
+            <button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container text-on-surface-variant text-xs font-semibold whitespace-nowrap hover:bg-surface-container-high active:scale-95 transition-transform flex-shrink-0">
+              <span>🛍️</span>
+              <span>Shopping &amp; Boutiques</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Mini Map Discovery Banner -->
+        <section class="px-4 mt-4">
+          <div class="relative overflow-hidden rounded-xl bg-surface-container-lowest shadow-md active:scale-[0.99] transition-all cursor-pointer group" onclick="alert('Opening Trastevere neighborhood cluster view on Map')">
+            <div class="w-full h-32 bg-cover bg-center relative bg-gradient-to-br from-amber-50 to-orange-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+              <div class="absolute inset-0 bg-secondary/10 backdrop-blur-[1px]"></div>
+              <!-- Live Map Radar Pulse Pin -->
+              <div class="absolute top-7 left-1/2 -translate-x-1/2 flex items-center justify-center">
+                <span class="absolute w-12 h-12 rounded-full bg-primary/25 animate-ping"></span>
+                <span class="absolute w-8 h-8 rounded-full bg-primary/35"></span>
+                <div class="relative px-2.5 py-1 bg-primary text-on-primary rounded-full shadow-lg flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">near_me</span>
+                  <span class="text-xs font-bold tracking-wide uppercase">450m</span>
+                </div>
+              </div>
+              <div class="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface/90 backdrop-blur-md shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                <span class="text-xs text-on-surface font-semibold">Active Proximity</span>
+              </div>
+            </div>
+            <div class="p-4 relative flex items-center justify-between">
+              <div class="min-w-0 pr-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+                  <h2 class="text-sm text-on-surface font-bold truncate">3 Nearby Saved Spots</h2>
+                </div>
+                <p class="text-xs text-on-surface-variant mt-0.5 truncate">Trastevere, Rome • 450m walking radius</p>
+              </div>
+              <div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-semibold flex-shrink-0 shadow-sm group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+                <span>Explore Map</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Metric Summary Counter Widget -->
+        <section class="px-4 mt-4">
+          <div class="grid grid-cols-3 gap-2.5 p-2 rounded-xl bg-surface-container-low shadow-sm">
+            <div class="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-lowest text-center">
+              <div class="flex items-center gap-1 text-primary">
+                <span class="material-symbols-outlined text-[18px]">bookmarks</span>
+                <span class="text-base font-extrabold text-on-surface">38</span>
+              </div>
+              <span class="text-xs text-on-surface-variant mt-0.5 font-medium">Places Saved</span>
+            </div>
+            <div class="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-lowest text-center">
+              <div class="flex items-center gap-1 text-secondary">
+                <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                <span class="text-base font-extrabold text-on-surface">14</span>
+              </div>
+              <span class="text-xs text-on-surface-variant mt-0.5 font-medium">Visited</span>
+            </div>
+            <div class="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-lowest text-center">
+              <div class="flex items-center gap-1 text-tertiary">
+                <span class="material-symbols-outlined text-[18px]">public</span>
+                <span class="text-base font-extrabold text-on-surface">5</span>
+              </div>
+              <span class="text-xs text-on-surface-variant mt-0.5 font-medium">Cities</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Nearby Saved Places Horizontal Carousel -->
+        <section class="mt-6">
+          <div class="px-4 flex items-center justify-between mb-2">
+            <div>
+              <h2 class="text-base text-on-surface font-extrabold tracking-tight">Nearby Saved Places</h2>
+              <p class="text-xs text-on-surface-variant">Ready for a spontaneous detour</p>
+            </div>
+            <button class="text-xs text-primary font-bold hover:underline flex items-center gap-0.5" onclick="alert('Viewing all 8 nearby saved spots!')">
+              See All (8)
+              <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+            </button>
+          </div>
+          <div class="flex gap-3.5 overflow-x-auto px-4 pb-2 pt-1 no-scrollbar snap-x snap-mandatory">
+            <!-- Card 1: Caffè dell'Oro -->
+            <article class="w-[82vw] max-w-[300px] flex-shrink-0 snap-center rounded-xl bg-surface-container-lowest shadow-md flex flex-col overflow-hidden">
+              <div class="relative h-40 w-full bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Caffè dell'Oro" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0wpQ8_Odxb5sj16scGHvLEHcGCe9zZpuRwduTCkpv2pz3L5bn_so8TPRs7ipLz9NAQtqeISY9FbmDp2wYAJ-tNNfCRwHH8UPYR0rUZV8IYYKkGhzCR2FwnIlydWgvhalnff8sbVMuQEIveKj38_scg2VcIGkwHyzvSEiXYIniY84weEkkCUcCn5_HSPDgphRnf2U_0Q6L82ARYZ8MLw2-z7csKxocADasVasuPPg"/>
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface/85 backdrop-blur-md shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[15px]">play_circle</span>
+                  <span class="text-xs text-on-surface font-bold">@wanderlust_sofia</span>
+                  <span class="text-on-surface-variant text-[10px]">• 12.4k</span>
+                </div>
+                <div class="absolute top-2.5 right-2.5 flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface shadow-sm text-xs font-bold">
+                  <span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span>4.8</span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent p-2.5 pt-6 flex items-end justify-between">
+                  <span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[11px] font-semibold">Cafes &amp; Roasters</span>
+                  <span class="text-[11px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full">280m away</span>
+                </div>
+              </div>
+              <div class="p-3 flex flex-col gap-2">
+                <div>
+                  <h3 class="text-sm text-on-surface font-extrabold truncate">Caffè dell'Oro</h3>
+                  <p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Known for pistachio cannoli &amp; terrace view</p>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                    <span class="text-xs text-secondary font-semibold">Open Now</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-all" onclick="alert('Navigating to Caffè dell\'Oro')">
+                    <span class="material-symbols-outlined text-[16px]">directions</span>
+                    <span>Navigate</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Trattoria Da Enzo -->
+            <article class="w-[82vw] max-w-[300px] flex-shrink-0 snap-center rounded-xl bg-surface-container-lowest shadow-md flex flex-col overflow-hidden">
+              <div class="relative h-40 w-full bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Trattoria Da Enzo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-aSDiEMawPHiYvFT-qGNl3nTmGHbxu3-QzR16UtAQqkKSWbW2OvyjLmMNClHTzMlsp_z_fiV8iHI8gYllYgkhnOHVfFMmtNBKOxX6_G4OcDC-9-xO_-m1UmkJc-DxJOzkcmT349nzkB1Wx__R0GdSA7DhEVW76y3adcK5wsN_7FCBVgNcco_nVHvVTnob7Z-FbUfvWMxxVQ2ZYTDBX9hAwxrh1Ap9qhkkdc-GgDI"/>
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface/85 backdrop-blur-md shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[15px]">play_circle</span>
+                  <span class="text-xs text-on-surface font-bold">@taste_rome</span>
+                </div>
+                <div class="absolute top-2.5 right-2.5 flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant shadow-sm text-xs font-bold">
+                  <span class="material-symbols-outlined text-[14px]">timer</span>
+                  <span>~15m wait</span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent p-2.5 pt-6 flex items-end justify-between">
+                  <span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[11px] font-semibold">Food &amp; Dining</span>
+                  <span class="text-[11px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full">420m away</span>
+                </div>
+              </div>
+              <div class="p-3 flex flex-col gap-2">
+                <div>
+                  <h3 class="text-sm text-on-surface font-extrabold truncate">Trattoria Da Enzo al 29</h3>
+                  <p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Legendary carciofi alla giudia &amp; carbonara</p>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                    <span class="text-xs text-secondary font-semibold">Open Now</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-all" onclick="alert('Navigating to Trattoria Da Enzo')">
+                    <span class="material-symbols-outlined text-[16px]">directions</span>
+                    <span>Navigate</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Belvedere del Gianicolo -->
+            <article class="w-[82vw] max-w-[300px] flex-shrink-0 snap-center rounded-xl bg-surface-container-lowest shadow-md flex flex-col overflow-hidden">
+              <div class="relative h-40 w-full bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover" alt="Belvedere del Gianicolo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcZ3EhvpOuXYMR5vOh-pW4KxCR947fHgwV3JOrT80RPBVeeJQO75xszF6c39L2bDngO670Ch8EFUhPNIt9p61tNSOIGHCovd7hB4Sw84ZA0OdrpYcGUGFEOBN6dVBsMbDuK0qLWJhtlLo5nAutxsYwT4SRCgc4PNFkn8T6QrLKe1E-eB8D5MpDR8XfZcorD5GZ0r6LkJvTcdPOzM7jFZEjhaqs3SMBDK5MYQmkKlc"/>
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface/85 backdrop-blur-md shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[15px]">play_circle</span>
+                  <span class="text-xs text-on-surface font-bold">@sunset_seeker</span>
+                </div>
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent p-2.5 pt-6 flex items-end justify-between">
+                  <span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px] font-semibold">Travel &amp; Views</span>
+                  <span class="text-[11px] font-bold text-primary bg-primary-fixed px-2 py-0.5 rounded-full">750m away</span>
+                </div>
+              </div>
+              <div class="p-3 flex flex-col gap-2">
+                <div>
+                  <h3 class="text-sm text-on-surface font-extrabold truncate">Belvedere del Gianicolo</h3>
+                  <p class="text-xs text-on-surface-variant line-clamp-1 mt-0.5">Best panoramic sunset spot with church bells</p>
+                </div>
+                <div class="flex items-center justify-between pt-1">
+                  <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-tertiary text-[16px]">wb_twilight</span>
+                    <span class="text-xs text-tertiary font-semibold">Golden Hour in 42m</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary text-on-primary text-xs font-bold shadow-sm active:scale-95 transition-all" onclick="alert('Navigating to Belvedere del Gianicolo')">
+                    <span class="material-symbols-outlined text-[16px]">directions</span>
+                    <span>Navigate</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Recently Imported Reels Feed -->
+        <section class="px-4 mt-6 mb-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+              <h2 class="text-base text-on-surface font-extrabold tracking-tight">Recently Imported Reels</h2>
+            </div>
+            <div class="text-xs text-on-surface-variant font-semibold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">sync</span>
+              <span>Auto-sync on</span>
+            </div>
+          </div>
+          <!-- Vertical List of Imported Items -->
+          <div class="flex flex-col gap-3">
+            <!-- Feed Item 1 -->
+            <div class="flex gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+              <div class="relative w-24 h-28 flex-shrink-0 rounded-lg overflow-hidden bg-surface-container-high">
+                <img class="w-full h-full object-cover" alt="Roscioli" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy0mHBm8PzEwyp2IAA5iNHfbWespYtg83WCtoFxQrbUWn1Dp1XJO1XN3HJoz2Ukkvy5GzAzB0DS_Oz062TfrWtf9f4GnDUdZ1Z_xHDID9QvFiTntskNZysmqQVvSjdpRm6M5XwURKqVjoLvddepKU9sYZZg6x8xDQA3t2yHg0K2pjO7G6DUcPB3qWKTYhJU3aMTL7vn2VNxDxuuG1G78gL3ow2g52sH4ELpkwtWBY"/>
+                <div class="absolute inset-0 bg-on-surface/20 flex items-center justify-center">
+                  <div class="w-8 h-8 rounded-full bg-surface/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                    <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                  </div>
+                </div>
+                <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-on-surface/75 text-on-primary text-[10px] font-bold">0:24</span>
+              </div>
+              <div class="flex flex-col justify-between min-w-0 flex-1 py-0.5">
+                <div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[10px] text-primary font-bold uppercase tracking-wider">AI Extracted Spot</span>
+                    <span class="text-[11px] text-outline">2h ago</span>
+                  </div>
+                  <h3 class="text-sm text-on-surface font-extrabold truncate mt-0.5">Roscioli Salumeria con Cucina</h3>
+                  <p class="text-xs text-on-surface-variant line-clamp-2 mt-1">
+                    <span class="font-semibold text-on-surface">"Must try the cacio e pepe ravioli</span> and reserve the wine cellar table 3 days ahead."
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div class="flex items-center gap-1 text-on-surface-variant text-xs">
+                    <span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+                    <span class="truncate">Via dei Giubbonari 21</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-on-primary transition-colors text-xs font-bold" onclick="alert('Viewing Roscioli on map')">
+                    <span class="material-symbols-outlined text-[15px]">pin_drop</span>
+                    <span>Map Pin</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feed Item 2 -->
+            <div class="flex gap-3 p-3 rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+              <div class="relative w-24 h-28 flex-shrink-0 rounded-lg overflow-hidden bg-surface-container-high">
+                <img class="w-full h-full object-cover" alt="The Jerry Thomas Project" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC7blPPJjI7dW3aBU132tJsDQwmRNkU5qGP9umd70DUkatzQeUHhmI4cfrWqqSF_6yKJKV9OY0W349ogudZ2-AfbWBBTds1FYOy04cMHlbpfTLreMySQEZS-YK4XVS001qthkV2krHCuxSRoUsENArpl1mSlsAgUwguzBCH7Pb0MuXWzLQB-oSd_jO3zzYeCkIAQfcJ2x0_-5hhHAkjIs0OvmairHpOMxIz-OfQ18"/>
+                <div class="absolute inset-0 bg-on-surface/20 flex items-center justify-center">
+                  <div class="w-8 h-8 rounded-full bg-surface/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                    <span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                  </div>
+                </div>
+                <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-on-surface/75 text-on-primary text-[10px] font-bold">0:18</span>
+              </div>
+              <div class="flex flex-col justify-between min-w-0 flex-1 py-0.5">
+                <div>
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="text-[10px] text-primary font-bold uppercase tracking-wider">AI Extracted Spot</span>
+                    <span class="text-[11px] text-outline">Yesterday</span>
+                  </div>
+                  <h3 class="text-sm text-on-surface font-extrabold truncate mt-0.5">The Jerry Thomas Project</h3>
+                  <p class="text-xs text-on-surface-variant line-clamp-2 mt-1">
+                    <span class="font-semibold text-on-surface">"Secret password required at entrance</span> (updated weekly on their profile story)."
+                  </p>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div class="flex items-center gap-1 text-on-surface-variant text-xs">
+                    <span class="material-symbols-outlined text-[15px] text-secondary">verified</span>
+                    <span class="truncate">Vicolo Cellini 30</span>
+                  </div>
+                  <button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-on-primary transition-colors text-xs font-bold" onclick="alert('Viewing The Jerry Thomas Project on map')">
+                    <span class="material-symbols-outlined text-[15px]">pin_drop</span>
+                    <span>Map Pin</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Quick Link Reel URL Bar Banner -->
+        <section class="px-4 mb-4">
+          <div class="p-4 rounded-xl bg-gradient-to-br from-primary-fixed to-surface-container flex flex-col gap-2.5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[22px]">auto_fix_high</span>
+                <span class="text-sm text-on-primary-fixed font-bold">Paste Reel Link directly</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary text-[10px] font-bold">Auto-Parse</span>
+            </div>
+            <p class="text-xs text-on-surface-variant">Instant AI geolocation, opening hours, menu highlights &amp; maps sync.</p>
+            <div class="flex items-center gap-2 mt-1">
+              <div class="flex-1 bg-surface-container-lowest rounded-full px-3 py-2 flex items-center gap-2 shadow-sm min-w-0">
+                <span class="material-symbols-outlined text-outline text-[18px]">link</span>
+                <input id="reel-input" class="w-full bg-transparent text-xs text-on-surface placeholder:text-outline focus:outline-none" placeholder="instagram.com/reel/C89xKl2..."/>
+              </div>
+              <button class="px-4 py-2 rounded-full bg-primary text-on-primary text-xs font-bold shadow-md hover:bg-primary-container active:scale-95 transition-transform flex-shrink-0" onclick="alert('Importing Reel: Location & tags auto-extracted!')">
+                Import
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FAB -->
+    <div class="fixed bottom-24 right-4 z-40 max-w-md">
+      <button aria-label="Add Place" class="h-14 w-14 rounded-full bg-gradient-to-tr from-primary to-primary-container text-on-primary flex items-center justify-center shadow-[0_12px_32px_-4px_rgba(224,90,71,0.45)] hover:scale-105 active:scale-95 transition-transform duration-200" onclick="alert('Opening Add Place modal')">
+        <span class="material-symbols-outlined text-[28px]">add</span>
+      </button>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 max-w-md w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.04)]">
+      <div class="flex justify-around items-center h-20 px-2">
+        <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] text-primary font-bold" href="#">
+          <div class="px-4 py-1 rounded-full flex items-center justify-center bg-primary/10">
+            <span class="material-symbols-outlined text-[24px]">home</span>
+          </div>
+          <span class="text-xs">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all" href="#">
+          <div class="px-4 py-1 rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-[24px]">explore</span>
+          </div>
+          <span class="text-xs">Explore</span>
+        </a>
+        <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all relative" href="#">
+          <div class="px-4 py-1 rounded-full flex items-center justify-center relative">
+            <span class="material-symbols-outlined text-[24px]">bookmark</span>
+            <span class="absolute top-1 right-2 w-2 h-2 bg-primary rounded-full"></span>
+          </div>
+          <span class="text-xs">Saved</span>
+        </a>
+        <a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[48px] text-on-surface-variant hover:text-on-surface transition-all" href="#">
+          <div class="px-4 py-1 rounded-full flex items-center justify-center">
+            <span class="material-symbols-outlined text-[24px]">tune</span>
+          </div>
+          <span class="text-xs">Settings</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</body>
+</html>

@@ -1,17 +1,23 @@
 package com.reelspot.app.ui
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Bookmark
+import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Map
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -23,7 +29,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.reelspot.app.ui.components.AddEditPlaceSheet
 import com.reelspot.app.ui.components.PermissionHandler
 import com.reelspot.app.ui.components.PlaceDetailSheet
@@ -35,7 +47,7 @@ import com.reelspot.app.ui.settings.SettingsScreen
 
 enum class ScreenRoute(val title: String) {
     HOME("Home"),
-    MAP("Map"),
+    MAP("Explore"),
     SAVED("Saved"),
     SETTINGS("Settings")
 }
@@ -80,30 +92,56 @@ fun MainScreen(viewModel: ReelSpotViewModel) {
         Scaffold(
             snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
             bottomBar = {
-                NavigationBar {
+                NavigationBar(
+                    containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
+                    tonalElevation = 8.dp
+                ) {
+                    val navItemColors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = MaterialTheme.colorScheme.primary,
+                        selectedTextColor = MaterialTheme.colorScheme.primary,
+                        indicatorColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
+                        unselectedIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        unselectedTextColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+
                     NavigationBarItem(
                         selected = currentRoute == ScreenRoute.HOME,
                         onClick = { currentRoute = ScreenRoute.HOME },
                         icon = { Icon(imageVector = Icons.Default.Home, contentDescription = "Home") },
-                        label = { Text("Home") }
+                        label = { Text("Home", fontWeight = if (currentRoute == ScreenRoute.HOME) FontWeight.Bold else FontWeight.Normal, fontSize = 11.sp) },
+                        colors = navItemColors
                     )
                     NavigationBarItem(
                         selected = currentRoute == ScreenRoute.MAP,
                         onClick = { currentRoute = ScreenRoute.MAP },
-                        icon = { Icon(imageVector = Icons.Default.Map, contentDescription = "Map") },
-                        label = { Text("Map") }
+                        icon = { Icon(imageVector = Icons.Default.Explore, contentDescription = "Explore") },
+                        label = { Text("Explore", fontWeight = if (currentRoute == ScreenRoute.MAP) FontWeight.Bold else FontWeight.Normal, fontSize = 11.sp) },
+                        colors = navItemColors
                     )
                     NavigationBarItem(
                         selected = currentRoute == ScreenRoute.SAVED,
                         onClick = { currentRoute = ScreenRoute.SAVED },
-                        icon = { Icon(imageVector = Icons.Default.Bookmark, contentDescription = "Saved") },
-                        label = { Text("Saved") }
+                        icon = {
+                            Box(contentAlignment = Alignment.TopEnd) {
+                                Icon(imageVector = Icons.Default.Bookmark, contentDescription = "Saved")
+                                if (savedPlaces.isNotEmpty()) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(7.dp)
+                                            .background(MaterialTheme.colorScheme.primary, CircleShape)
+                                    )
+                                }
+                            }
+                        },
+                        label = { Text("Saved", fontWeight = if (currentRoute == ScreenRoute.SAVED) FontWeight.Bold else FontWeight.Normal, fontSize = 11.sp) },
+                        colors = navItemColors
                     )
                     NavigationBarItem(
                         selected = currentRoute == ScreenRoute.SETTINGS,
                         onClick = { currentRoute = ScreenRoute.SETTINGS },
-                        icon = { Icon(imageVector = Icons.Default.Settings, contentDescription = "Settings") },
-                        label = { Text("Settings") }
+                        icon = { Icon(imageVector = Icons.Default.Tune, contentDescription = "Settings") },
+                        label = { Text("Settings", fontWeight = if (currentRoute == ScreenRoute.SETTINGS) FontWeight.Bold else FontWeight.Normal, fontSize = 11.sp) },
+                        colors = navItemColors
                     )
                 }
             },
@@ -111,22 +149,46 @@ fun MainScreen(viewModel: ReelSpotViewModel) {
                 if (currentRoute != ScreenRoute.SETTINGS) {
                     FloatingActionButton(
                         onClick = { viewModel.openAddPlaceSheet() },
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        shape = CircleShape,
+                        containerColor = Color.Transparent,
+                        elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 8.dp),
+                        modifier = Modifier
+                            .size(56.dp)
+                            .background(
+                                Brush.linearGradient(
+                                    listOf(
+                                        MaterialTheme.colorScheme.primary,
+                                        MaterialTheme.colorScheme.primaryContainer
+                                    )
+                                ),
+                                CircleShape
+                            )
                     ) {
-                        Icon(imageVector = Icons.Default.Add, contentDescription = "Add Place")
+                        Icon(
+                            imageVector = Icons.Default.Add,
+                            contentDescription = "Add Place",
+                            tint = Color.White,
+                            modifier = Modifier.size(28.dp)
+                        )
                     }
                 }
             }
         ) { innerPadding ->
-            Box(modifier = Modifier.padding(innerPadding)) {
+            androidx.compose.foundation.layout.Box(modifier = Modifier.padding(innerPadding)) {
                 when (currentRoute) {
                     ScreenRoute.HOME -> {
                         HomeScreen(
                             savedPlacesCount = savedPlaces.size,
                             nearbyPlaces = nearbyPlaces,
+                            allPlaces = savedPlaces,
+                            foldersCount = folders.size,
+                            searchQuery = searchQuery,
+                            onSearchQueryChange = { viewModel.setSearchQuery(it) },
+                            selectedCategory = selectedCategory,
+                            onCategorySelect = { viewModel.setSelectedCategory(it) },
                             onAddPlaceClick = { viewModel.openAddPlaceSheet() },
                             onViewMapClick = { currentRoute = ScreenRoute.MAP },
+                            onViewSavedClick = { currentRoute = ScreenRoute.SAVED },
                             onSaveFromReelUrl = { url -> viewModel.openAddPlaceSheet(url) },
                             onPlaceClick = { place -> viewModel.selectPlaceDetails(place) },
                             onOpenSettingsClick = { currentRoute = ScreenRoute.SETTINGS }
@@ -138,6 +200,7 @@ fun MainScreen(viewModel: ReelSpotViewModel) {
                             savedPlaces = savedPlaces,
                             currentLocation = currentLocation,
                             onOpenPlaceDetails = { place -> viewModel.selectPlaceDetails(place) }
+
                         )
                     }
 
